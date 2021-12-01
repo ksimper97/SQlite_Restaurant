@@ -1,51 +1,5 @@
 import sqlite3
 
-'''
-con = sqlite3.connect('inventory.db')
-cur = con.cursor()
-
-#create table
-cur.execute(CREATE TABLE stocks
-                    (date text, trans text, symbol text, qty real, price real))
-
-#insert a row of data
-cur.execute("INSERT INTO stocks VALUES ('2006-01-05','BUT','RHAT',100,35.14)")
-
-#save (commit) the changes
-con.commit()
-
-#close connection
-con.close()
-'''
-
-'''
-def get_name(cursor):
-    cursor.execute("SELECT name FROM inventory")
-    results = cursor.fetchall()
-    if len(results) == 0:
-        print("No products in inventory")
-        return None
-    for i in range(len(results)):
-        print(f"{i+1} - {results[i][0]}")
-    choice = 0
-    while choice < 1 or choice > len(results):
-        choice = int(input("Product: "))
-    return results[choice-1][0]
-
-
-choice = None
-while choice != "2":
-    print("1. Inventory")
-    print("2. Quit")
-    choice = input("> ")
-    print()
-    if choice == "1":
-        cursor.execute("SELECT * FROM inventory ORDER BY quantity DESC")
-        print("{:>10} {:>10} {:>10}".format("Product", "Quantity", "Price"))
-        for record in cursor.fetchall():
-            print("{:>10} {:>10} {:>10}".format(record[0],record[1],record[2]))
-'''      
-
 con = sqlite3.connect('inventory.db')
 cursor = con.cursor()
 
